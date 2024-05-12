@@ -162,6 +162,7 @@ p {
 }
 
 .rsvp-button {
+  opacity: var(--hero-opacity);
   position: absolute;
   cursor: pointer;
   user-select: none;
@@ -178,27 +179,7 @@ p {
   border: solid white 1px;
   border-radius: 100px;
   width: 120px;
-  animation: out 200ms forwards;
-}
-
-.rsvp-button:hover {
-  animation: in 200ms forwards;
-}
-
-@keyframes in {
-  to {
-    width: 140px;
-  }
-}
-
-@keyframes out {
-  from {
-    width: 140px;
-  }
-
-  to {
-    width: 120px;
-  }
+  animation: fade 6s forwards;
 }
 
 @media screen and (min-width: 500px) {
