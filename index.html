@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elopement | Sophie & Nolan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sedan:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Solitreo&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="hero-image">
+    <div class="hero-text">
+      <h1 style="margin-bottom: 10px;">Sophie & Nolan</h1>
+      <p style="margin-block: 0px;">Happily Ever After Party</p>
+      <p style="margin-block: -10px;">September 7th 2024</p>
+      <p id="days-remaining" style="margin-top: 50px;"></p>
+    </div>
+    <button id="rsvp-button" class="rsvp-button" onclick="show_rsvp()">RSVP</button>
+  </div>
+  <div class="paper-background">
+    <div class="section">
+      <h1>Celebrate With Us</h1>
+      <p style="margin: 0;">
+        Mark your calendars for September 7th, 2024!
+        We are delighted to extend to you an invitation to our post-wedding celebration,
+        aptly named the "Happily Ever After" party.
+        While our wedding will be an intimate hike in Roan Mountain earlier in August,
+        we wish to ensure that our cherished family and friends can partake in the joyous occasion too.
+      </p>
+    </div>
+
+    <div class="section">
+      <h1>The Venue</h1>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2526.9636436049846!2d-81.0150126787197!3d35.01632147691048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88568f3d60960183%3A0x53efd6e149e9d737!2s3958%20Elks%20Park%20Rd%2C%20Rock%20Hill%2C%20SC%2029732!5e0!3m2!1sen!2sus!4v1715049391965!5m2!1sen!2sus"
+        height="450" style="border: solid black 2px; border-radius: 10px; width: 100%;" allowfullscreen=""
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <div class="section">
+      <h1>Our Registry</h1>
+
+    </div>
+
+    <div class="section">
+      <h1>Our Story</h1>
+      <div class="timeline">
+        <img id="timeline-image">
+        <button class="timeline-prev" type="button" onclick="prev_image()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 0 24 24" width="100" height="100">
+            <path d="M10 17l-5-5 5-5m8 5l" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <button class="timeline-next" type="button" onclick="next_image()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="3 0 24 24" width="100" height="100">
+            <path d="M14 7l5 5-5 5m-8-5 5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="rsvp"
+    style="position: absolute; top: 0%; left: 0%; background-color: rgba(0,0,0,0.5); backdrop-filter: blur(2px); z-index: -1000; opacity: 0%;">
+    <button style="position: absolute; top: 20px; left: 20px;" onclick="hide_rsvp()">back</button>
+    <iframe id="rsvp-form"
+      src="https://docs.google.com/forms/d/e/1FAIpQLSe86gs_HByjDmO-G9xul4g9Wm5Qu_iFeOQUTryIqoDUMUWADg/viewform?embedded=true"
+      style="width: 100vw; height: 100vh;" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  </div>
+
+</body>
+
+<script>
+  let rsvp_page = document.getElementById("rsvp")
+  let rsvp_button = document.getElementById("rsvp-button")
+
+  function show_rsvp() {
+    document.body.style.overflowY = "hidden";
+    rsvp_page.style.zIndex = 1000;
+    rsvp_page.style.animation = "fade-in 400ms forwards";
+  }
+
+  function hide_rsvp() {
+    document.body.style.overflowY = "auto";
+    rsvp_page.style.animation = "fade-out 400ms forwards";
+    rsvp_page.addEventListener('animationend', hide_rsvp_callback);
+  }
+
+  function hide_rsvp_callback() {
+    rsvp_page.style.zIndex = -1000;
+    rsvp_page.removeEventListener('animationend', hide_rsvp_callback);
+  }
+
+</script>
+
+<script>
+  let days_remaining = document.getElementById("days-remaining");
+  let today = new Date();
+  let wedding_date = new Date("09/07/2024");
+  let day_diff = Math.round((wedding_date.getTime() - today.getTime()) / (1000 * 3600 * 24));
+
+  days_remaining.innerText = `${day_diff}` + " days remaining";
+</script>
+
+<script>
+
+  let timeline_image_urls = ["public/timeline_1.jpeg", "public/timeline_2.jpeg", "public/timeline_3.png", "public/timeline_4.png", "public/timeline_5.png", "public/timeline_6.png", "public/timeline_7.png", "public/timeline_8.png", "public/timeline_9.png", "public/timeline_10.jpeg"];
+
+  let timeline = document.querySelector(".timeline");
+
+  let timeline_image = document.getElementById("timeline-image");
+
+  let timeline_next = document.querySelector(".timeline-next");
+  let timeline_prev = document.querySelector(".timeline-prev");
+
+  let current_image_index = 0;
+
+  let current_image_url = timeline_image_urls[0];
+
+  set_current_image_url(current_image_index);
+
+  function set_current_image_url(index) {
+    let image_count = timeline_image_urls.length;
+    current_image_index = ((index % image_count) + image_count) % image_count // what the hell JS? Why you make me do this?
+    current_image_url = timeline_image_urls[current_image_index];
+    timeline_image.src = current_image_url;
+  }
+
+  function next_image() {
+    current_image_index += 1;
+    set_current_image_url(current_image_index);
+  }
+
+  function prev_image() {
+    current_image_index -= 1;
+    set_current_image_url(current_image_index);
+  }
+
+  let previews_shown = [];
+  function nav_preview(intersection, elem) {
+    if (intersection && !previews_shown.includes(elem)) {
+      previews_shown.push(elem);
+      elem.style.animation = "nav-preview 4.5s";
+    }
+    else {
+      elem.style.animation = null;
+    }
+  }
+
+  respond_to_visibility(timeline_next, nav_preview);
+  respond_to_visibility(timeline_prev, nav_preview);
+
+  function respond_to_visibility(element, callback) {
+    var options = {
+      root: document.documentElement,
+    };
+
+    var observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        callback(entry.intersectionRatio > 0, element);
+      });
+    }, options);
+
+    observer.observe(element);
+  }
+
+</script>
+
+</html>
