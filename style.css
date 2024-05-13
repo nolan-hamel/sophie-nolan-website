@@ -36,8 +36,7 @@ p {
   background-position: 60% 20%;
   background-repeat: no-repeat;
   position: relative;
-  animation: fade 0s;
-  /* 5 sec */
+  animation: fade 5s forwards;
 }
 
 /* Place text in the middle of the image */
@@ -50,8 +49,7 @@ p {
   transform: translate(-50%, -50%);
   color: white;
   width: 100%;
-  animation: fade 0s;
-  /* 6 sec */
+  animation: fade 6s forwards;
   opacity: var(--hero-opacity);
   width: 100%;
   padding-inline: 20px;
@@ -164,6 +162,7 @@ p {
 }
 
 .rsvp-button {
+  opacity: var(--hero-opacity);
   position: absolute;
   cursor: pointer;
   user-select: none;
@@ -180,27 +179,7 @@ p {
   border: solid white 1px;
   border-radius: 100px;
   width: 120px;
-  animation: out 200ms forwards;
-}
-
-.rsvp-button:hover {
-  animation: in 200ms forwards;
-}
-
-@keyframes in {
-  to {
-    width: 140px;
-  }
-}
-
-@keyframes out {
-  from {
-    width: 140px;
-  }
-
-  to {
-    width: 120px;
-  }
+  animation: fade 6s forwards;
 }
 
 @media screen and (min-width: 500px) {
