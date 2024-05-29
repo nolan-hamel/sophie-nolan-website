@@ -195,22 +195,22 @@ p {
   }
 }
 
-@keyframes fade-in {
+@keyframes expand-rsvp {
   from {
-    opacity: 0%;
+    height: 0;
   }
 
   to {
-    opacity: 100%;
+    height: 80vh;
   }
 }
 
-@keyframes fade-out {
+@keyframes retract-rsvp {
   from {
-    opacity: 100%;
+    height: 80vh;
   }
 
   to {
-    opacity: 0%;
+    height: 0;
   }
 }

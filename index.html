@@ -24,80 +24,78 @@
     </div>
     <button id="rsvp-button" class="rsvp-button" onclick="show_rsvp()">RSVP</button>
   </div>
-  <div class="paper-background">
-    <div class="section">
-      <h1>Celebrate With Us</h1>
-      <p style="margin: 0;">
-        Mark your calendars for September 7th, 2024!
-        We are delighted to extend to you an invitation to our post-wedding celebration,
-        aptly named the "Happily Ever After" party.
-        While our wedding will be an intimate hike in Roan Mountain earlier in August,
-        we wish to ensure that our cherished family and friends can partake in the joyous occasion too.
-      </p>
-    </div>
 
-    <div class="section">
-      <h1>The Venue</h1>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2526.9636436049846!2d-81.0150126787197!3d35.01632147691048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88568f3d60960183%3A0x53efd6e149e9d737!2s3958%20Elks%20Park%20Rd%2C%20Rock%20Hill%2C%20SC%2029732!5e0!3m2!1sen!2sus!4v1715049391965!5m2!1sen!2sus"
-        height="450" style="border: solid black 2px; border-radius: 10px; width: 100%;" allowfullscreen=""
-        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-
-    <div class="section">
-      <h1>Our Registry</h1>
-
-    </div>
-
-    <div class="section">
-      <h1>Our Story</h1>
-      <div class="timeline">
-        <img id="timeline-image">
-        <button class="timeline-prev" type="button" onclick="prev_image()">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 0 24 24" width="100" height="100">
-            <path d="M10 17l-5-5 5-5m8 5l" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
-              stroke-linejoin="round" />
-          </svg>
-        </button>
-        <button class="timeline-next" type="button" onclick="next_image()">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="3 0 24 24" width="100" height="100">
-            <path d="M14 7l5 5-5 5m-8-5 5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
-              stroke-linejoin="round" />
-          </svg>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <div id="rsvp"
-    style="line-height:0; position: absolute; top: 0%; left: 0%; background-color: rgba(0,0,0,0.5); backdrop-filter: blur(2px); z-index: -1000; opacity: 0%;">
-    <button style="position: absolute; top: 20px; left: 20px;" onclick="hide_rsvp()">back</button>
+  <div id="rsvp" style="line-height:0; height: fit-content; overflow: hidden;">
     <iframe id="rsvp-form"
       src="https://docs.google.com/forms/d/e/1FAIpQLSe86gs_HByjDmO-G9xul4g9Wm5Qu_iFeOQUTryIqoDUMUWADg/viewform?embedded=true"
-      style="width: 100vw; height: 100vh;" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+      style="width: 100vw; height: 0vh;" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    <img id="hide-rsvp" src="public/up-arrow.svg" onclick="hide_rsvp()" width="30px" height="30px"
+      style="display: none; margin: 0 auto; padding: 3px; background-color: rgba(0,0,0,40%); cursor: pointer; border-radius: 50%;">
   </div>
 
+  <div class="section">
+    <h1>Celebrate With Us</h1>
+    <p style="margin: 0;">
+      Mark your calendars for September 7th, 2024!
+      We are delighted to extend to you an invitation to our post-wedding celebration,
+      aptly named the "Happily Ever After" party.
+      While our wedding will be an intimate hike in Roan Mountain earlier in August,
+      we wish to ensure that our cherished family and friends can partake in the joyous occasion too.
+    </p>
+  </div>
+
+  <div class="section">
+    <h1>The Venue</h1>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2526.9636436049846!2d-81.0150126787197!3d35.01632147691048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88568f3d60960183%3A0x53efd6e149e9d737!2s3958%20Elks%20Park%20Rd%2C%20Rock%20Hill%2C%20SC%2029732!5e0!3m2!1sen!2sus!4v1715049391965!5m2!1sen!2sus"
+      height="450" style="border: solid black 2px; border-radius: 10px; width: 100%;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+
+  <div class="section">
+    <h1>Our Registry</h1>
+
+  </div>
+
+  <div class="section">
+    <h1>Our Story</h1>
+    <div class="timeline">
+      <img id="timeline-image">
+      <button class="timeline-prev" type="button" onclick="prev_image()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 0 24 24" width="100" height="100">
+          <path d="M10 17l-5-5 5-5m8 5l" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </button>
+      <button class="timeline-next" type="button" onclick="next_image()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="3 0 24 24" width="100" height="100">
+          <path d="M14 7l5 5-5 5m-8-5 5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </button>
+    </div>
+  </div>
 </body>
 
 <script>
   let rsvp_page = document.getElementById("rsvp")
-  let rsvp_button = document.getElementById("rsvp-button")
+  let rsvp_form = document.getElementById("rsvp-form")
+  let rsvp_button = document.getElementById("hide-rsvp")
 
   function show_rsvp() {
-    document.body.style.overflowY = "hidden";
-    rsvp_page.style.zIndex = 1000;
-    rsvp_page.style.animation = "fade-in 400ms forwards";
+    rsvp_button.style.display = "block";
+    rsvp_form.style.animation = "expand-rsvp 400ms forwards";
+    rsvp_page.scrollIntoView({ behavior: "smooth" });
   }
 
   function hide_rsvp() {
-    document.body.style.overflowY = "auto";
-    rsvp_page.style.animation = "fade-out 400ms forwards";
-    rsvp_page.addEventListener('animationend', hide_rsvp_callback);
+    rsvp_button.style.display = "none";
+    rsvp_form.style.animation = "retract-rsvp 400ms forwards";
+    rsvp_form.addEventListener('animationend', hide_rsvp_callback);
   }
 
   function hide_rsvp_callback() {
-    rsvp_page.style.zIndex = -1000;
-    rsvp_page.removeEventListener('animationend', hide_rsvp_callback);
+    rsvp_form.removeEventListener('animationend', hide_rsvp_callback);
   }
 
 </script>
