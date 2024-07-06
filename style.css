@@ -96,6 +96,14 @@ p {
   max-width: calc(150px * 3);
 }
 
+.timeline-thumbnails {
+  margin: auto;
+  position: relative;
+  padding-block: 15px;
+  max-width: calc(150px * 3);
+}
+
+/* 
 .timeline-prev,
 .timeline-next {
   color: white;
@@ -145,15 +153,58 @@ p {
   100% {
     opacity: 0;
   }
-}
+} */
 
-.timeline>img {
+#timeline-image-thumbnails {
+  position: static;
   height: 100%;
   width: 100%;
-  margin-bottom: 20px;
+  white-space: nowrap;
+  z-index: 0;
+}
+
+.timeline-image-thumbnail {
+  position: relative;
+  height: 50px;
+  width: calc(10% - 4px);
   border-radius: 5px;
   object-fit: cover;
   object-position: 50% 0%;
+  margin-inline: 2px;
+  opacity: 60%;
+  transition: 400ms;
+  z-index: 1;
+}
+
+.timeline-image-thumbnail.active {
+  opacity: 100%;
+}
+
+@media (hover: hover) {
+  .timeline-image-thumbnail:hover {
+    transition: 400ms;
+    opacity: 100%;
+    z-index: 100;
+    scale: 1.2;
+  }
+}
+
+.timeline-image {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  translate: calc(-50% - 2px) 0%;
+  border-radius: 5px;
+  object-fit: cover;
+  object-position: 50% 0%;
+  margin-inline: 2px;
+  opacity: 0%;
+  transition: 400ms;
+}
+
+.timeline-image.active {
+  opacity: 100%;
+  transition: 400ms;
 }
 
 #days-remaining {
