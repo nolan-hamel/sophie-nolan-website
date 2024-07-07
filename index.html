@@ -115,7 +115,8 @@
 
 <script>
 
-  let timeline_image_urls = ["public/timeline_1.jpeg", "public/timeline_2.jpeg", "public/timeline_3.png", "public/timeline_4.png", "public/timeline_5.png", "public/timeline_6.png", "public/timeline_7.png", "public/timeline_8.png", "public/timeline_9.png", "public/timeline_10.jpeg"];
+  let timeline_image_urls = ["public/timeline_1.jpeg", "public/timeline_2.jpeg", "public/timeline_3.jpeg", "public/timeline_4.jpeg", "public/timeline_5.jpeg", "public/timeline_6.jpeg", "public/timeline_7.jpeg", "public/timeline_8.jpeg", "public/timeline_9.jpeg", "public/timeline_10.jpeg"];
+  let timeline_thumbnail_image_urls = ["public/thumbnail_timeline_1.jpeg", "public/thumbnail_timeline_2.jpeg", "public/thumbnail_timeline_3.jpeg", "public/thumbnail_timeline_4.jpeg", "public/thumbnail_timeline_5.jpeg", "public/thumbnail_timeline_6.jpeg", "public/thumbnail_timeline_7.jpeg", "public/thumbnail_timeline_8.jpeg", "public/thumbnail_timeline_9.jpeg", "public/thumbnail_timeline_10.jpeg"];
   let caption_texts = [
     "Sophomore year of high school\n7/19/2018", 
     "Junior year of high school\n4/26/2019", 
@@ -139,7 +140,7 @@
 
   let active_image_index = 0
 
-  timeline_image_urls.forEach(url => {
+  timeline_thumbnail_image_urls.forEach(url => {
     // set thumbnail
     const thumbnail_image = document.createElement("img");
     thumbnail_image.src = url;
@@ -149,7 +150,9 @@
     thumbnail_image.onclick = set_active_image;
     thumbnail_images.appendChild(thumbnail_image);
     thumbnail_image_list.push(thumbnail_image);
+  });
 
+  timeline_image_urls.forEach(url => {
     // set image
     const timeline_image = document.createElement("img");
     timeline_image.src = url;
@@ -182,7 +185,7 @@
     })
     timeline_image_list.forEach(image  => {
       image.classList.remove("active");
-      if(image.src == image_to_activate.src) image.classList.add("active");
+      if(image == timeline_image_list[active_image_index]) image.classList.add("active");
     })
     timeline_caption_list.forEach(caption => {
       caption.classList.remove("active");
