@@ -73,6 +73,7 @@
     <h1>Our Story</h1>
     <div class="timeline">
       <div id="timeline-images"></div>
+      <div id="timeline-captions"></div>
     </div>
     <div class="timeline-thumbnails">
       <div id="timeline-image-thumbnails"></div>
@@ -115,16 +116,31 @@
 <script>
 
   let timeline_image_urls = ["public/timeline_1.jpeg", "public/timeline_2.jpeg", "public/timeline_3.png", "public/timeline_4.png", "public/timeline_5.png", "public/timeline_6.png", "public/timeline_7.png", "public/timeline_8.png", "public/timeline_9.png", "public/timeline_10.jpeg"];
-
-  let timeline_images = document.getElementById("timeline-images");
+  let caption_texts = [
+    "Sophomore year of high school\n7/19/2018", 
+    "Junior year of high school\n4/26/2019", 
+    "Our first date\n6/1/2020", 
+    "High school graduation\n6/5/2020",
+    "Freshman year at Clemson\n6/23/2020",
+    "Roan Mountain, TN\nOur future wedding location\n3/13/2021", 
+    "Clemson graduation\n5/12/2023", 
+    "Nolan proposes on God's Thumb\n5/17/2023", 
+    "Engagement Celebration in Lincoln City, OR\n5/17/2023", 
+    "Moving out of first apartment together\n7/22/2023"
+  ]
+  
   let thumbnail_images = document.getElementById("timeline-image-thumbnails");
+  let timeline_images = document.getElementById("timeline-images");
+  let timeline_captions = document.getElementById("timeline-captions");
 
   let thumbnail_image_list = []
   let timeline_image_list = []
+  let timeline_caption_list = []
 
   let active_image_index = 0
 
   timeline_image_urls.forEach(url => {
+    // set thumbnail
     const thumbnail_image = document.createElement("img");
     thumbnail_image.src = url;
     thumbnail_image.classList.add("timeline-image-thumbnail");
@@ -134,6 +150,7 @@
     thumbnail_images.appendChild(thumbnail_image);
     thumbnail_image_list.push(thumbnail_image);
 
+    // set image
     const timeline_image = document.createElement("img");
     timeline_image.src = url;
     timeline_image.classList.add("timeline-image");
@@ -143,19 +160,34 @@
     timeline_image_list.push(timeline_image);
   });
 
+  caption_texts.forEach(caption => {
+    // set caption
+    const timeline_caption = document.createElement("p");
+    timeline_caption.innerText = caption;
+    timeline_caption.classList.add("timeline-caption");
+    if (caption == caption_texts[active_image_index]) timeline_caption.classList.add("active");
+    timeline_captions.appendChild(timeline_caption)
+    timeline_caption_list.push(timeline_caption)
+  })
+
   function set_active_image(event) {    
     const image_to_activate = event.target
     // deactivate currently active
     thumbnail_image_list.forEach(image => { 
       image.classList.remove("active");
-      if(image.src == image_to_activate.src) image.classList.add("active");
+      if(image.src == image_to_activate.src) {
+        active_image_index = thumbnail_image_list.indexOf(image)
+        image.classList.add("active");
+      } 
     })
     timeline_image_list.forEach(image  => {
       image.classList.remove("active");
       if(image.src == image_to_activate.src) image.classList.add("active");
     })
-
-    // image_to_activate.classList.add("active");
+    timeline_caption_list.forEach(caption => {
+      caption.classList.remove("active");
+      if(caption == timeline_caption_list[active_image_index]) caption.classList.add("active");
+    })
   }
 
 </script>
