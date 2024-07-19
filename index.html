@@ -42,15 +42,19 @@
     <p style="margin: 0;">
       Mark your calendars for September 7th, 2024 at 5 PM!
       We are delighted to extend to you an invitation to our post-wedding celebration,
-      aptly named the "Happily Ever After" party.
+      aptly named the "Happily Ever After" party. Please join us for an evening filled with dinner, drinks, and dancing. 
       While our wedding will be an intimate hike in Roan Mountain earlier in August,
       we wish to ensure that our cherished family and friends can partake in the joyous occasion too.
+      We hope to see you there!
     </p>
   </div>
 
   <div class="section">
     <h1>The Venue</h1>
-    <p style="margin: 0; padding-bottom: 10px;">Join us for an evening of celebration at the Elks Park! The festivities will begin at 5:00 PM.</p>
+    <p style="margin: 0; padding-bottom: 10px;">
+      Join us for an evening of celebration at Elks Lodge at the Lake! The festivities will begin at 5:00 PM.
+      The address is 3958 Elks Park Rd, Rock Hill, SC 29732.
+    </p>
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2526.9636436049846!2d-81.0150126787197!3d35.01632147691048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88568f3d60960183%3A0x53efd6e149e9d737!2s3958%20Elks%20Park%20Rd%2C%20Rock%20Hill%2C%20SC%2029732!5e0!3m2!1sen!2sus!4v1715049391965!5m2!1sen!2sus"
       height="450" style="border: solid black 2px; border-radius: 10px; width: 100%;" allowfullscreen="" loading="lazy"
@@ -119,8 +123,8 @@
 
 <script>
 
-  let timeline_image_urls = ["public/timeline_1.jpeg", "public/timeline_2.jpeg", "public/timeline_3.jpeg", "public/timeline_4.jpeg", "public/timeline_5.jpeg", "public/timeline_6.jpeg", "public/timeline_7.jpeg", "public/timeline_8.jpeg", "public/timeline_9.jpeg", "public/timeline_10.jpeg"];
-  let timeline_thumbnail_image_urls = ["public/thumbnail_timeline_1.jpeg", "public/thumbnail_timeline_2.jpeg", "public/thumbnail_timeline_3.jpeg", "public/thumbnail_timeline_4.jpeg", "public/thumbnail_timeline_5.jpeg", "public/thumbnail_timeline_6.jpeg", "public/thumbnail_timeline_7.jpeg", "public/thumbnail_timeline_8.jpeg", "public/thumbnail_timeline_9.jpeg", "public/thumbnail_timeline_10.jpeg"];
+  let timeline_image_urls = ["public/timeline_1.jpeg", "public/timeline_2.jpeg", "public/timeline_3.jpeg", "public/timeline_4.jpeg", "public/timeline_5.jpeg", "public/timeline_6.jpeg", "public/timeline_10.jpeg", "public/timeline_7.jpeg", "public/timeline_8.jpeg", "public/timeline_9.jpeg"];
+  let timeline_thumbnail_image_urls = ["public/thumbnail_timeline_1.jpeg", "public/thumbnail_timeline_2.jpeg", "public/thumbnail_timeline_3.jpeg", "public/thumbnail_timeline_4.jpeg", "public/thumbnail_timeline_5.jpeg", "public/thumbnail_timeline_6.jpeg", "public/thumbnail_timeline_10.jpeg", "public/thumbnail_timeline_7.jpeg", "public/thumbnail_timeline_8.jpeg", "public/thumbnail_timeline_9.jpeg"];
   let caption_texts = [
     "Sophomore year of high school\n7/19/2018", 
     "Junior year of high school\n4/26/2019", 
@@ -128,10 +132,10 @@
     "High school graduation\n6/5/2020",
     "Freshman year at Clemson\n6/23/2020",
     "Roan Mountain, TN\nOur future wedding location\n3/13/2021", 
+    "Our first apartment together\n7/22/2021",
     "Clemson graduation\n5/12/2023", 
     "Nolan proposes on God's Thumb\n5/17/2023", 
-    "Engagement celebration in Lincoln City, OR\n5/17/2023", 
-    "Moving out of first apartment together\n7/22/2023"
+    "Engagement celebration in Lincoln City, OR\n5/17/2023"
   ]
   
   let thumbnail_images = document.getElementById("timeline-image-thumbnails");
@@ -149,7 +153,7 @@
     const thumbnail_image = document.createElement("img");
     thumbnail_image.src = url;
     thumbnail_image.classList.add("timeline-image-thumbnail");
-    if (url == timeline_image_urls[active_image_index]) thumbnail_image.classList.add("active");
+    if (url == timeline_thumbnail_image_urls[active_image_index]) thumbnail_image.classList.add("active");
     thumbnail_image.draggable = false;
     thumbnail_image.onclick = set_active_image;
     thumbnail_images.appendChild(thumbnail_image);
